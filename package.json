@@ -34,7 +34,7 @@
   "scripts": {
     "build": "gatsby build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d public",
+    "deploy": "git push origin `git subtree split --prefix public master`:gh-pages --force",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
