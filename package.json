@@ -24,7 +24,7 @@
     "react-scroll": "^1.8.1"
   },
   "devDependencies": {
-    "gh-pages": "^3.1.0",
+    "husky": "^6.0.0",
     "prettier": "2.1.2"
   },
   "keywords": [
@@ -33,7 +33,7 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "predeploy": "npm run build",
+    "postinstall": "node ./node_modules/husky/lib/installer/bin install",
     "deploy": "git push origin `git subtree split --prefix public master`:gh-pages --force",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
@@ -48,5 +48,10 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build"
+    }
   }
 }
